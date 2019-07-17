@@ -1,0 +1,89 @@
+body {
+  background-color: #0138c1;
+  color: #ffffff;
+}
+
+* {
+  font-family: Arial;
+}
+
+.form-registration {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-registration .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-registration .form-control:focus {
+  z-index: 2;
+}
+
+.form-registration .first-component {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-registration .middle-component {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-registration .last-component {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-registration input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.training-container {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+}
+
+.table-container {
+  color: #000000;
+}
+
+.table-container table {
+  width: 100%;
+  border: none;
+  font-size: 12px;
+}
+
+.table-container thead tr th {
+  border: none;
+  border-color: #6687d9;
+  background-color: #6687d9;
+}
+
+.table-container tr:nth-child(odd) td {
+  background-color: #b2c3ec
+}
+
+.table-container tr:nth-child(even) td {
+  background-color: #e0e7f7
+}
+
+.table-container tr.active td {
+  background-color:#1155fe;
+}
+
+.table-container tbody tr td {
+  border: none;
+}

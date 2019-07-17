@@ -1,0 +1,37 @@
+<div class="form-registration text-center">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <img class="mx-auto my-2" src="../../assets/images/RTB-logo-2019.png" alt="" width="140" height="140" />
+    <h1 class="h3 my-2 font-weight-normal">Summer Run Club</h1>
+
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" id="email" formControlName="email" class="form-control first-component"
+      placeholder="Email address" autofocus />
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" formControlName="password" class="form-control last-component"
+      placeholder="Password" />
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">
+      Sign in
+    </button>
+
+    <span *ngIf="loading">
+      Loading...
+      <span class="fa fa-spinner fa-spin fa-2x fa-fw spin-color">
+      </span>
+    </span>
+
+    <span *ngIf="error" style="color:red">
+      <span>
+        <hr>
+        {{error}}
+      </span>
+    </span>
+  </form>
+  <hr>
+  <div>
+    <a routerLink="/signup">Don't have an account? Signup!</a>
+    <br>
+    <a routerLink="/resetPassword">Forgot your username or password?</a>
+  </div>
+</div>

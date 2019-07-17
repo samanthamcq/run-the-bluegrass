@@ -1,0 +1,28 @@
+<div>
+  <form [formGroup]="logMyRunForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 my-2 font-weight-normal text-center">Summer Run Club</h1>
+
+    <label for="date" class="my-1">Date</label>
+    <input type="date" id="date" formControlName="date" class="form-control" autofocus />
+    <span *ngIf="timestampOutOfRange">
+      {{ timestampOutOfRange }}
+    </span>
+
+    <label for="miles" class="my-1">Miles</label>
+    <input type="number" id="milesRun" formControlName="milesRun" class="form-control" placeholder="0.00" />
+    <span *ngIf="logMyRunForm.controls.milesRun.touched">
+    <span *ngIf="logMyRunForm.controls.milesRun.hasError('max')">Please enter a number less than 50 miles.</span>
+    <span *ngIf="!logMyRunForm.controls.milesRun.valid &&
+                !logMyRunForm.controls.milesRun.hasError('max')">Please enter miles(up to 2 decimal places).</span>
+    </span>
+
+    <button class="my-3 btn btn-lg btn-primary btn-block my-2" type="submit" [disabled]="!logMyRunForm.valid">
+      Log my run
+    </button>
+
+    <span *ngIf="loading == 'loading'" class="float-right">
+      <span class="fa fa-spinner fa-spin fa-2x fa-fw spin-color">
+      </span>
+    </span>
+  </form>
+</div>

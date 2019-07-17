@@ -1,0 +1,79 @@
+<div class="form-registration">
+  <a routerLink="/login" class="text-left">&laquo; Previous</a>
+  <h1 class="h3 my-5 font-weight-normal text-center">Join now</h1>
+  <div class="form-style">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <input type="text" id="firstName" formControlName="firstName" placeholder="First Name"
+        class="form-control first-component" autofocus />
+      <span *ngIf="
+          signupForm.get('firstName').hasError('required') &&
+          signupForm.get('firstName').touched
+        " class="text-danger">
+        First name is required!
+      </span>
+
+      <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name"
+        class="form-control middle-component" />
+      <span *ngIf="
+          signupForm.get('lastName').hasError('required') &&
+          signupForm.get('lastName').touched
+        " class="text-danger">
+        Last name is required!
+      </span>
+
+      <input type="email" id="email" formControlName="email" placeholder="email"
+        class="form-control middle-component" />
+      <div *ngIf="signupForm.get('email').touched">
+        <span *ngIf="signupForm.get('email').hasError('required')" class="text-danger">
+          Email is required!
+        </span>
+        <span *ngIf="signupForm.get('email').hasError('email')" class="text-danger">
+          Email format should be joe@abc.com.
+        </span>
+      </div>
+
+      <input type="password" id="password" formControlName="password" placeholder="Password"
+        class="form-control middle-component" />
+      <div *ngIf="signupForm.get('password').touched">
+        <span *ngIf="signupForm.get('password').hasError('required')" class="text-danger">
+          Password is required!
+        </span>
+        <span *ngIf="signupForm.get('password').hasError('minlength')" class="text-danger">
+          Password must be at least 8 characters long.
+        </span>
+      </div>
+
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Retype Password"
+        class="form-control last-component" />
+      <div *ngIf="signupForm.get('confirmPassword').touched">
+        <span *ngIf="signupForm.get('confirmPassword').hasError('required')" class="text-danger">
+          Confirm Password is required!
+        </span>
+        <span *ngIf="signupForm.hasError('mismatchedPasswords')" class="text-danger">
+          Passwords do not match.
+        </span>
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="!signupForm.valid" class="btn btn-lg btn-primary btn-block">
+          Create my account
+        </button>
+      </div>
+
+      <span *ngIf="loading">
+        Loading...
+        <span class="fa fa-spinner fa-spin fa-2x fa-fw spin-color">
+        </span>
+      </span>
+
+      <span *ngIf="error" style="color:red">
+        <span>
+          <hr>
+          {{error}}
+        </span>
+      </span>
+
+    </form>
+  </div>
+</div>

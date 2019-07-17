@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="table-container">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Total Miles Run:</th>
+          <th>{{totalMilesRun | number : '1.2-2'}}</th>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <th style="width: 124px">Miles Run</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div>
+    <table>
+      <tbody>
+        <tr *ngFor="let myTraining of myTrainings;
+                      let i = index" [ngClass]="{'active':isSelected(i)}">
+          <td>{{myTraining.timestamp | slice:0:10}}</td>
+          <td style="width: 94px">{{myTraining.miles_run  | number : '1.2-2'}}</td>
+          <td style="width: 30px">
+            <button class="history-delete-btn" (click)="delete(myTraining, i);">
+              <i class="fa" [ngClass]="{'fa-remove': !isSelected(i), 'fa-spinner fa-spin fa-fw':isSelected(i)}"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

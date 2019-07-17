@@ -1,0 +1,25 @@
+<div class="table-container">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 45px">Rank</th>
+          <th>Name</th>
+          <th style="width: 90px">Miles Run</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div>
+    <table>
+      <tbody>
+        <tr *ngFor="let runner of runners; let i = index"
+          [ngClass]="{'font-weight-bold':firstName == runner.first_name && lastName == runner.last_name}">
+          <td style="width: 45px">{{i+1}}</td>
+          <td>{{runner.first_name}} {{runner.last_name}}</td>
+          <td style="width: 90px">{{runner.total_miles | number : '1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
